@@ -7,7 +7,7 @@ const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
 
 const corsMiddleWare = require("cors");
-app.use(corsMiddleWare);
+app.use(corsMiddleWare());
 
 app.use(visited);
 
