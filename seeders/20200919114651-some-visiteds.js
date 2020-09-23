@@ -64,7 +64,7 @@ module.exports = {
         {
           city: "Madrid",
           country: "Spain",
-          long: 3.7038,
+          long: -3.7038,
           lat: 40.4168,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -72,7 +72,7 @@ module.exports = {
         {
           city: "Lisbon",
           country: "Portugal",
-          long: 9.1393,
+          long: -9.1393,
           lat: 38.7223,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -112,7 +112,7 @@ module.exports = {
         {
           city: "London",
           country: "England",
-          long: 0.1278,
+          long: -0.1278,
           lat: 51.5074,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -144,7 +144,7 @@ module.exports = {
         {
           city: "Reykjavik",
           country: "Iceland",
-          long: 21.9426,
+          long: -21.9426,
           lat: 64.1466,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -152,7 +152,7 @@ module.exports = {
         {
           city: "Fredericton",
           country: "Canada",
-          long: 66.6431,
+          long: -66.6431,
           lat: 45.9636,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -160,7 +160,7 @@ module.exports = {
         {
           city: "New York",
           country: "United States",
-          long: 74.006,
+          long: -74.006,
           lat: 40.7128,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -168,7 +168,7 @@ module.exports = {
         {
           city: "Playa del Carmen",
           country: "Mexico",
-          long: 87.0739,
+          long: -87.0739,
           lat: 20.6296,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -176,15 +176,15 @@ module.exports = {
         {
           city: "Coxen Hole",
           country: "Honduras",
-          long: 16.324,
-          lat: 86.535,
+          long: -86.535,
+          lat: 16.324,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           city: "Edinburgh",
           country: "Scotland",
-          long: 3.1883,
+          long: -3.1883,
           lat: 55.9533,
           createdAt: new Date(),
           updatedAt: new Date(),
