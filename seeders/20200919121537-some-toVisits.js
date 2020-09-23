@@ -24,8 +24,8 @@ module.exports = {
         {
           city: "Copenhagen",
           country: "Denmark",
-          long: 23.7275,
-          lat: 37.9838,
+          long: 12.5683,
+          lat: 55.6761,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
