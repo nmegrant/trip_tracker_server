@@ -16,8 +16,8 @@ module.exports = {
         {
           city: "Athens",
           country: "Greece",
-          long: 12.4964,
-          lat: 41.9028,
+          long: 23.7275,
+          lat: 37.9838,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
