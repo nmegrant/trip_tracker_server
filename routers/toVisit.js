@@ -23,7 +23,7 @@ router.post("/tovisit", async (request, response) => {
     });
     return response.status(201).send({ ...newVisited.dataValues });
   } catch (error) {
-    console.log(`Error for adding new visited place: ${error}`);
+    console.log(`Error for adding new to visit place: ${error}`);
   }
 });
 
