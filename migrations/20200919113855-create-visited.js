@@ -14,7 +14,6 @@ module.exports = {
       },
       country: {
         type: Sequelize.STRING,
-        unique: true,
       },
       long: {
         type: Sequelize.FLOAT,
