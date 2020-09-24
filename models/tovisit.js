@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   toVisit.init(
     {
       city: { type: DataTypes.STRING, unique: true },
-      country: { type: DataTypes.STRING, unique: true },
+      country: { type: DataTypes.STRING },
       long: { type: DataTypes.FLOAT, unique: true },
       lat: { type: DataTypes.FLOAT, unique: true },
     },
