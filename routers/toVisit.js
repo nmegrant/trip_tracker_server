@@ -14,7 +14,6 @@ router.get("/tovisit", async (request, response) => {
 
 router.post("/tovisit", async (request, response) => {
   const { city, country, long, lat } = request.body;
-  console.log(city, country, long, lat);
   try {
     const newVisited = await ToVisit.create({
       city,
