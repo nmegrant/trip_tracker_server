@@ -12,4 +12,9 @@ router.get("/visited", async (request, response) => {
   }
 });
 
+router.post("/visited", async (request, response) => {
+  const { city, country, long, lat } = request.body;
+  console.log(city, country, long, lat);
+});
+
 module.exports = router;
