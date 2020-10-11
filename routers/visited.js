@@ -16,13 +16,6 @@ router.get("/visited", async (request, response) => {
 router.post("/visited", async (request, response) => {
   const { city, country, long, lat } = request.body;
   try {
-    const toVisit = await ToVisit.findOne({
-      where: { city: city, country: country },
-    });
-    if (toVisit) {
-      await toVisit.destroy();
-    }
-
     const newVisited = await Visited.create({
       city,
       country,

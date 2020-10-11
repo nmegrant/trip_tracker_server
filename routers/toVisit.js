@@ -27,4 +27,18 @@ router.post("/tovisit", async (request, response) => {
   }
 });
 
+router.delete("/tovisit", async (request, response) => {
+  const { city, country } = request.body;
+  const toVisit = await ToVisit.findOne({
+    where: { city: city, country: country },
+  });
+  if (!toVisit) {
+    console.log("No city yet in to visit");
+    return response.status(205);
+  }
+  await toVisit.destroy();
+  const updatedToVisit = ToVisit.findAll();
+  return response.status(204).send(updatedToVisit.dataValues);
+});
+
 module.exports = router;
