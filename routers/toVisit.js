@@ -28,17 +28,25 @@ router.post("/tovisit", async (request, response) => {
 });
 
 router.delete("/tovisit", async (request, response) => {
-  const { city, country } = request.body;
-  const toVisit = await ToVisit.findOne({
-    where: { city: city, country: country },
-  });
-  if (!toVisit) {
-    console.log("No city yet in to visit");
-    return response.status(205);
+  try {
+    const { city, country } = request.body;
+    if (!city || !country) {
+      return response.status(404);
+    }
+
+    const toVisitDelete = await ToVisit.findOne({
+      where: { city: city, country: country },
+    });
+    if (!toVisitDelete) {
+      return response.status(205);
+    }
+
+    await toVisitDelete.destroy();
+    const updatedToVisit = await ToVisit.findAll();
+    return response.status(200).send(updatedToVisit);
+  } catch (error) {
+    console.log(`Error deleting a toVisit place: ${error}`);
   }
-  await toVisit.destroy();
-  const updatedToVisit = ToVisit.findAll();
-  return response.status(204).send(updatedToVisit.dataValues);
 });
 
 module.exports = router;
