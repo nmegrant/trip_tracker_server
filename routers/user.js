@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const User = require("../models").user;
 const bcrypt = require("bcrypt");
+const { toJWT } = require("../auth/jwt");
 
 const router = new Router();
 
@@ -28,6 +29,7 @@ router.post("/signup", async (request, response, next) => {
       country,
     });
     delete newUser.dataValues["password"];
+    const token = toJWT({ userId: newUser.id });
     response.status(201).send({ token, ...newUser.dataValues });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
