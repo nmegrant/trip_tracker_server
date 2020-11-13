@@ -7,7 +7,21 @@ const router = new Router();
 
 router.post("/login", async (request, response, next) => {
   try {
-    console.log(request.body);
+    const { email, password } = request.body;
+    if (!email || !password) {
+      return response
+        .status(400)
+        .send({ message: "Please supply email and password." });
+    }
+    const user = await User.findOne({ where: { email } });
+    if (!user || !bcrypt.compareSynce(password, user.password)) {
+      return response
+        .status(400)
+        .send({ message: "No user with that email or password is incorrect" });
+    }
+    delete user.dataValues["password"];
+    const token = toJWT({ userId: user.id });
+    return response.status(200).send({ token, ...user.dataValues });
   } catch {
     console.log(`The login error is: ${error}`);
   }
