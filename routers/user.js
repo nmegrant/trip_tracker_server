@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const User = require("../models").user;
+const User = require("../models").users;
 const bcrypt = require("bcrypt");
 const { toJWT } = require("../auth/jwt");
 
@@ -14,15 +14,16 @@ router.post("/login", async (request, response, next) => {
         .send({ message: "Please supply email and password." });
     }
     const user = await User.findOne({ where: { email } });
-    if (!user || !bcrypt.compareSynce(password, user.password)) {
+    if (!user || !bcrypt.compareSync(password, user.password)) {
       return response
         .status(400)
         .send({ message: "No user with that email or password is incorrect" });
     }
+    console.log("here");
     delete user.dataValues["password"];
     const token = toJWT({ userId: user.id });
     return response.status(200).send({ token, ...user.dataValues });
-  } catch {
+  } catch (error) {
     console.log(`The login error is: ${error}`);
   }
 });
