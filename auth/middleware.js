@@ -11,6 +11,8 @@ async function auth(request, response, next) {
       if (!user) {
         return response.status(404).send({ message: "No user found" });
       }
+      request.user = user;
+      return next();
     } catch (error) {
       response.status(400).send({ message: "Invalid JWT token" });
     }
