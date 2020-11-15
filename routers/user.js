@@ -19,7 +19,6 @@ router.post("/login", async (request, response, next) => {
         .status(400)
         .send({ message: "No user with that email or password is incorrect" });
     }
-    console.log("here");
     delete user.dataValues["password"];
     const token = toJWT({ userId: user.id });
     return response.status(200).send({ token, ...user.dataValues });
