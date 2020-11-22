@@ -58,7 +58,6 @@ router.post("/signup", async (request, response, next) => {
 
 router.get("/user", authMiddleware, (request, response) => {
   delete request.user.dataValues["password"];
-  console.log(request.user);
   response.status(200).send({ ...request.user.dataValues });
 });
 
