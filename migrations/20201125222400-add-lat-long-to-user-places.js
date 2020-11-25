@@ -6,7 +6,7 @@ module.exports = {
       "userToVisits",
       "long",
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       {}
     );
@@ -14,7 +14,7 @@ module.exports = {
       "userToVisits",
       "lat",
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       {}
     );
@@ -22,7 +22,7 @@ module.exports = {
       "userVisiteds",
       "long",
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       {}
     );
@@ -30,7 +30,7 @@ module.exports = {
       "userVisiteds",
       "lat",
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       {}
     );
