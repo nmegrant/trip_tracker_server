@@ -6,7 +6,6 @@ const router = new Router();
 
 router.get("/uservisited", authMiddleware, async (request, response) => {
   try {
-    console.log(request);
     const places = await UserVisitd.findAll({
       where: { userId: request.user.id },
     });

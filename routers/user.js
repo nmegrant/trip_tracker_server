@@ -24,7 +24,7 @@ router.post("/login", async (request, response, next) => {
     const token = toJWT({ userId: user.id });
     return response.status(200).send({ token, ...user.dataValues });
   } catch (error) {
-    console.log(`The login error is: ${error}`);
+    console.log(`Error logging in: ${error}`);
   }
 });
 
