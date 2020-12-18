@@ -15,4 +15,21 @@ router.get("/usertovisit", authMiddleware, async (request, response) => {
   }
 });
 
+router.post("/usertovisit", authMiddleware, async (request, response) => {
+  const { city, country, date, days } = request.body;
+  const userId = request.user.id;
+  try {
+    const newTrip = await UserToVisit.create({
+      city,
+      country,
+      date,
+      days,
+      userId,
+    });
+    return response.status(200).send({ ...newTrip.dataValues });
+  } catch (error) {
+    console.log(`Error creating new user trip: ${error}`);
+  }
+});
+
 module.exports = router;
