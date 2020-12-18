@@ -16,15 +16,17 @@ router.get("/usertovisit", authMiddleware, async (request, response) => {
 });
 
 router.post("/usertovisit", authMiddleware, async (request, response) => {
-  const { city, country, date, days } = request.body;
+  const { city, country, date, days, long, lat } = request.body;
   const userId = request.user.id;
   try {
     const newTrip = await UserToVisit.create({
       city,
       country,
-      date,
+      date: new Date(date),
       days,
       userId,
+      long,
+      lat,
     });
     return response.status(200).send({ ...newTrip.dataValues });
   } catch (error) {
