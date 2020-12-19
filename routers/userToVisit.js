@@ -11,7 +11,7 @@ router.get("/usertovisit", authMiddleware, async (request, response) => {
     });
     return response.status(200).send(places);
   } catch (error) {
-    console.log(`Error fetching user to visit places: ${error}`);
+    console.error(`Error fetching user to visit places: ${error}`);
   }
 });
 
@@ -30,7 +30,7 @@ router.post("/usertovisit", authMiddleware, async (request, response) => {
     });
     return response.status(200).send({ ...newTrip.dataValues });
   } catch (error) {
-    console.log(`Error creating new user trip: ${error}`);
+    console.error(`Error creating new user trip: ${error}`);
   }
 });
 
