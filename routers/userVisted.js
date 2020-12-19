@@ -11,7 +11,26 @@ router.get("/uservisited", authMiddleware, async (request, response) => {
     });
     return response.status(200).send(places);
   } catch (error) {
-    console.log(`Error fetching user visited places: ${error}`);
+    console.error(`Error fetching user visited places: ${error}`);
+  }
+});
+
+router.post("/uservisited", authMiddleware, async (request, response) => {
+  const { city, country, date, days, long, lat } = request.body;
+  const userId = request.user.id;
+  try {
+    const newTrip = await UserVisitd.create({
+      city,
+      country,
+      date: new Date(date),
+      days,
+      userId,
+      long,
+      lat,
+    });
+    return response.status(200).send({ ...newTrip.dataValues });
+  } catch (error) {
+    console.error(`Error creating new taken user trip: ${error}`);
   }
 });
 
