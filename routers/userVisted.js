@@ -16,7 +16,7 @@ router.get("/uservisited", authMiddleware, async (request, response) => {
 });
 
 router.post("/uservisited", authMiddleware, async (request, response) => {
-  const { city, country, date, days, long, lat } = request.body;
+  const { city, country, date, days, long, lat, rating } = request.body;
   const userId = request.user.id;
   try {
     const newTrip = await UserVisitd.create({
@@ -27,6 +27,7 @@ router.post("/uservisited", authMiddleware, async (request, response) => {
       userId,
       long,
       lat,
+      ranking: rating,
     });
     return response.status(200).send({ ...newTrip.dataValues });
   } catch (error) {
