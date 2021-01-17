@@ -2,11 +2,6 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class userVisited extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       userVisited.belongsTo(models.users);
     }
@@ -19,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       lat: DataTypes.FLOAT,
       date: DataTypes.DATE,
       days: DataTypes.INTEGER,
+      ranking: { type: DataTypes.FLOAT, defaultValue: -1 },
     },
     {
       sequelize,
